@@ -2,11 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Meta viewport agregada -->
   <title>Inventario</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'style/main.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 <body>
   
@@ -26,60 +26,106 @@
         <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="#"><i class="fas fa-box-open"></i> Productos</a></li>
         <li><a href="#" onclick="toggleTable('comprasTable')"><i class="fas fa-shopping-bag"></i> Compras</a></li>
-        <li><a href="#" onclick="toggleTable('ventasTable')"><i class="fas fa-shopping-bag"></i> Ventas</a></li>
+        <li><a href="#" onclick="toggleTable('ventasTable')"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
         <li><a href="#"><i class="fas fa-undo-alt"></i> Devoluciones</a></li>
         <li><a href="#"><i class="fas fa-warehouse"></i> Stock</a></li>
         <li><a href="#"><i class="fas fa-file-invoice"></i> Facturas</a></li>
         <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
         <li><a href="#"><i class="fas fa-tools"></i> Configuración</a></li>
-
+        <li><a href="#"><i class="fas fa-chart-line"></i> Reportes</a></li>
       </ul>
     </nav>
 
     <main class="contenido">
       {% block contenido %}{% endblock %}
-      
-      <!-- Aquí se desplegará la tabla de compras -->
-      <div id="comprasTable" class="tabla-compras" style="display: none;">
+    
+      <!-- Tabla de Compras -->
+      <div id="comprasTable" style="display: none;">
         <h2>Compras Registradas</h2>
-        <table>
+        <table border="1" cellpadding="5" cellspacing="0">
           <thead>
             <tr>
               <th>ID</th>
               <th>Producto</th>
               <th>Cantidad</th>
               <th>Total</th>
-              <th>Fecha</th>            
+              <th>Fecha</th>
               <th>Acciones</th>
             </tr>
           </thead>
-          
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Producto X</td>
+              <td>12</td>
+              <td>$120</td>
+              <td>2025-04-14</td>
+              <td><button>Editar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+      <!-- Tabla de Ventas -->
+      <div id="ventasTable" style="display: none;">
+        <h2>Ventas Registradas</h2>
+        <table border="1" cellpadding="5" cellspacing="0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Fecha</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Producto Y</td>
+              <td>5</td>
+              <td>$50</td>
+              <td>2025-04-14</td>
+              <td><button>Editar</button></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </main>
-  </div>
-
   <script>
     function toggleMenu() {
       const sidebar = document.querySelector('.sidebar');
       sidebar.classList.toggle('sidebar-visible');
     }
-
-    // Función para mostrar/ocultar la tabla de compras
+  
+    // Mostrar solo una tabla a la vez (Compras o Ventas)
     function toggleTable(tableId) {
-      const table = document.getElementById(tableId);
-      table.style.display = (table.style.display === 'none' || table.style.display === '') ? 'block' : 'none';
+      const tables = ['comprasTable', 'ventasTable'];
+  
+      tables.forEach(id => {
+        const table = document.getElementById(id);
+  
+        if (id === tableId) {
+          // Si es la que se quiere mostrar, alternar visibilidad
+          table.style.display = (table.style.display === 'block') ? 'none' : 'block';
+        } else {
+          // Ocultar las demás
+          table.style.display = 'none';
+        }
+      });
     }
-
+  
     // Cerrar el menú si haces clic fuera
     document.addEventListener('click', function(event) {
       const sidebar = document.querySelector('.sidebar');
       const button = document.querySelector('.menu-toggle');
-
+  
       if (!sidebar.contains(event.target) && !button.contains(event.target)) {
         sidebar.classList.remove('sidebar-visible');
       }
     });
   </script>
+  
 </body>
 </html>
