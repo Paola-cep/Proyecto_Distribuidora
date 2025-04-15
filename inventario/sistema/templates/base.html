@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventario</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style/main.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+  
+  <header class="topbar">
+    <img src="{% static 'img/logo_distribuidora.jpg' %}" alt="logo_distribuidora" class="logo-topbar">
+    <h1>SISTEMA DE INVENTARIOS <br> DISTRILOTS </h1>
+    <div class="topbar-spacer"></div>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      ☰
+    </button>
+  </header>
+
+  <div class="wrapper">
+    <nav class="sidebar">
+      <h1>Menú</h1>
+      <ul>
+        <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-box-open"></i> Productos</a></li>
+        <li><a href="#" onclick="toggleTable('comprasTable')"><i class="fas fa-shopping-bag"></i> Compras</a></li>
+        <li><a href="#" onclick="toggleTable('ventasTable')"><i class="fas fa-shopping-bag"></i> Ventas</a></li>
+        <li><a href="#"><i class="fas fa-undo-alt"></i> Devoluciones</a></li>
+        <li><a href="#"><i class="fas fa-warehouse"></i> Stock</a></li>
+        <li><a href="#"><i class="fas fa-file-invoice"></i> Facturas</a></li>
+        <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
+        <li><a href="#"><i class="fas fa-tools"></i> Configuración</a></li>
+
+      </ul>
+    </nav>
+
+    <main class="contenido">
+      {% block contenido %}{% endblock %}
+      
+      <!-- Aquí se desplegará la tabla de compras -->
+      <div id="comprasTable" class="tabla-compras" style="display: none;">
+        <h2>Compras Registradas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Total</th>
+              <th>Fecha</th>            
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('sidebar-visible');
+    }
+
+    // Función para mostrar/ocultar la tabla de compras
+    function toggleTable(tableId) {
+      const table = document.getElementById(tableId);
+      table.style.display = (table.style.display === 'none' || table.style.display === '') ? 'block' : 'none';
+    }
+
+    // Cerrar el menú si haces clic fuera
+    document.addEventListener('click', function(event) {
+      const sidebar = document.querySelector('.sidebar');
+      const button = document.querySelector('.menu-toggle');
+
+      if (!sidebar.contains(event.target) && !button.contains(event.target)) {
+        sidebar.classList.remove('sidebar-visible');
+      }
+    });
+  </script>
+</body>
+</html>

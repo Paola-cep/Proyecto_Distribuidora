@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Bienvenido al sistema de inventario</h2>
+<p>Selecciona una opción del menú.</p>
+
+<div class="dashboard-cards">
+  <div class="card">
+    <h3>STOCK</h3>
+    <p>Consulta los productos disponibles.</p>
+    <a href="#">Ver Stock</a>
+  </div>
+  <div class="card">
+    <h3>VENTAS</h3>
+    <p>Revisa tus ventas recientes.</p>
+    <a href="#">Ver Ventas</a>
+  </div>
+  <div class="card">
+    <h3>COMPRAS</h3>
+    <p>Consulta tus compras realizadas.</p>
+    <a href="#">Ver Compras</a>
+  </div>
+</div>
+{% endblock %}
