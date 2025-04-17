@@ -68,20 +68,20 @@ body {
 }
 
 .submenu {
-  display: none; /* Submenú oculto por defecto */
-  margin-top: 5px;
+  display: none;
+  padding-left: 20px; /* Opcional para sangría */
 }
 
 .submenu a {
-  padding-left: 30px; /* Más hacia la derecha */
+  padding-left: 50px; /* Más hacia la derecha */
   font-size: 13px; /* Un poco más pequeño */
-  background-color: #34495e; /* Color más claro que el fondo */
+  background-color: #bccc72; /* Color diferente al fondo */
   color: #ecf0f1; /* Gris clarito */
   display: block;
-  padding-top: 8px;
+  padding-top: 3px;
   padding-bottom: 8px;
   border-radius: 5px;
-  margin-top: 5px;
+  margin-top: 2px;
   transition: background-color 0.3s ease;
 }
 

@@ -32,16 +32,34 @@
             <i class="fas fa-file-invoice"></i> Facturas
           </a>
           <ul id="submenu-facturas" class="submenu" style="display: none; padding-left: 20px;">
-            <li><a href="/crear-factura"><i class="fas fa-plus"></i> Crear factura</a></li>
-            <li><a href="/medios-pago"><i class="fas fa-credit-card"></i> Medios de pago</a></li>
+            <li><a href="/crear-factura"><i class="fas fa-plus"></i> Crear factura</a></li>            
           </ul>
         </li>
-
+        <!-- Medios de pago con submenú -->
+        <li>
+          <a href="#" onclick="toggleSubmenu('submenu-medios_de_pago')">
+            <i class="fas fa-credit-card"></i> Medios de Pago
+          </a>
+          <ul id='submenu-medios_de_pago' class="submenu" style="display: none; padding-left: 20px;">
+            <li><a href="/efectivo"><i class="fas fa-money-bill-wave"></i> Efectivo</a></li>
+            <li><a href="/transferencia"><i class="fas fa-university"></i> Transferencia</a></li>             
+          </ul>
+        </li>
         <li><a href="#"><i class="fas fa-undo-alt"></i> Devoluciones</a></li>
-        <li><a href="#"><i class="fas fa-warehouse"></i> Stock</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> Usuarios</a></li>
-        <li><a href="#"><i class="fas fa-tools"></i> Configuración</a></li>
+        
+        <!-- Usuarios -->
+        <li>
+          <a href="#" onclick="toggleSubmenu('submenu-usuarios')">
+            <i class="fas fa-users"></i> Usuarios
+          </a>
+          <ul id='submenu-usuarios' class="submenu" style="display: none; padding-left: 20px;">
+            <li><a href="/proveedores"><i class="fas fa-building"></i> Proveedores</a></li>
+            <li><a href="/clientes"><i class="fas fa-user-tie"></i> Clientes</a></li>             
+          </ul>
+        </li>
         <li><a href="#"><i class="fas fa-chart-line"></i> Reportes</a></li>
+        <li><a href="#"><i class="fas fa-tools"></i> Configuración</a></li>
+        
       </ul>
     </nav>
 
