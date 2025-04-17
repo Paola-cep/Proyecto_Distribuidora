@@ -1,3 +1,14 @@
 from django.db import models
 
-# Create your models here.
+class Compra(models.Model):
+    producto = models.CharField(max_length=100)
+    cantidad = models.IntegerField()
+    total = models.FloatField()
+    fecha = models.DateTimeField()
+
+class Venta(models.Model):
+    producto = models.CharField(max_length=100)
+    cantidad = models.IntegerField()
+    total = models.FloatField()
+    fecha = models.DateTimeField()
+

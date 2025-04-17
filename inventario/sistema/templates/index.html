@@ -8,17 +8,17 @@
   <div class="card">
     <h3>STOCK</h3>
     <p>Consulta los productos disponibles.</p>
-    <a href="#">Ver Stock</a>
+    <a href="{% url 'stock' %}">Ver Stock</a>
   </div>
   <div class="card">
     <h3>VENTAS</h3>
     <p>Revisa tus ventas recientes.</p>
-    <a href="#">Ver Ventas</a>
+    <a href="{% url 'ventas' %}">Ver Ventas</a>
   </div>
   <div class="card">
     <h3>COMPRAS</h3>
     <p>Consulta tus compras realizadas.</p>
-    <a href="#">Ver Compras</a>
+    <a href="{% url 'compras' %}">Ver Compras</a>
   </div>
 </div>
 {% endblock %}
