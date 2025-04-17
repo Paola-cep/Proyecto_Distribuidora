@@ -67,6 +67,35 @@ body {
   transition: right 0.3s ease;
 }
 
+.submenu {
+  display: none; /* Submenú oculto por defecto */
+  margin-top: 5px;
+}
+
+.submenu a {
+  padding-left: 30px; /* Más hacia la derecha */
+  font-size: 13px; /* Un poco más pequeño */
+  background-color: #34495e; /* Color más claro que el fondo */
+  color: #ecf0f1; /* Gris clarito */
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.submenu a:hover {
+  background-color: #3d566e;
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item:hover .submenu a {
+  display: flex;
+}
+
 .sidebar.sidebar-visible {
   display: block;
   right: 0;
